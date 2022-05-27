@@ -41,7 +41,7 @@
                             {{$plan->name}}
                         </td>
                         <td>
-                            {{$plan->price}}
+                            R${{$plan->price}}
                         </td>
                         <td>
                             <a href="{{route('details.plan.index', $plan->url)}}" class="btn btn-primary">Detalhes</a>

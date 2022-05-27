@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\DetailPlan;
 use App\Models\Plan;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateDetailPlan;
 
 class DetailPlanController extends Controller

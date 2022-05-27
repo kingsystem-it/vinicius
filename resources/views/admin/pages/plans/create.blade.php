@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="card">
+    <div class="background-color: red">
         <div class="card-body">
             <form action="{{ route('plans.store') }}" class="form" method="POST">
                 @csrf                

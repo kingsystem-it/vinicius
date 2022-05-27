@@ -1,11 +1,31 @@
 <?php
 
+use App\Http\Controllers\Admin\ACL\PermissionController;
+use App\Http\Controllers\Admin\ACl\PermissionProfileController;
+use App\Http\Controllers\Admin\ACL\ProfileController;
 use App\Http\Controllers\Admin\DetailPlanController;
 use App\Http\Controllers\Admin\PlanController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function () {
 
+    //Routes Permission x Profile
+
+    Route::get('profile/{id}/permission/{idPermission}/detach', [PermissionProfileController::class, 'detachPermissionProfile'])->name('profile.permissions.detach');
+    Route::post('profile/{id}/permission', [PermissionProfileController::class, 'attachPermissionsProfile'])->name('profile.permissions.attach');
+    Route::any('profile/{id}/permission/create', [PermissionProfileController::class, 'permissionsAvailable'])->name('profile.permissions.available');
+    Route::get('profile/{id}/permission', [PermissionProfileController::class, 'permissions'])->name('profile.permissions');
+    Route::get('permission/{id}/profile', [PermissionProfileController::class, 'profiles'])->name('permissions.profiles');
+
+    //Routes Permissions
+
+    Route::any('permissions/search', [PermissionController::class, 'search'])->name('permissions.search');
+    Route::resource('permissions', PermissionController::class);
+
+    //Routes Profiles
+
+    Route::any('profiles/search', [ProfileController::class, 'search'])->name('profiles.search');
+    Route::resource('profiles', ProfileController::class);
 
     //Route Details Plans
 
@@ -32,8 +52,6 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/', [PlanController::class, 'index'])->name('admin.index');
 });
-
-
 
 Route::get('/', function () {
     return view('welcome');
