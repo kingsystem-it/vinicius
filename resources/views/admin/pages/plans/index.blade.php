@@ -31,12 +31,12 @@
                 <tr>
                         <th>Nome</th>
                         <th>Preço</th>
-                        <th width=250>Ações</th>
+                        <th width=270>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($plans as $plan)
-                    <tr style="width:10px">
+                    <tr>
                         <td>
                             {{$plan->name}}
                         </td>
@@ -47,6 +47,7 @@
                             <a href="{{route('details.plan.index', $plan->url)}}" class="btn btn-primary">Detalhes</a>
                             <a href="{{route('plans.show', $plan->url)}}" class="btn btn-warning">VER</a>
                             <a href="{{route('plans.edit', $plan->url)}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                            <a href="{{route('plans.profiles', $plan->id)}}" class="btn btn-info"><i class="fas fa-address-book"></i></a>
                         </td>
                     </tr>
                     @endforeach
