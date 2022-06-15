@@ -5,7 +5,7 @@
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('profile.permissions', $profile->id) }}" class="active">Perfis</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('profiles.permissions', $profile->id) }}" class="active">Perfis</a></li>
     </ol>
 
     <h1>Permissões disponíveis perfil <strong>{{ $profile->name }}</strong></h1>

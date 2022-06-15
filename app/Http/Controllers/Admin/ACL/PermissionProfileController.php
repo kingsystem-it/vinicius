@@ -50,7 +50,7 @@ class PermissionProfileController extends Controller
         }
 
         $profile->permissions()->attach($request->permissions);
-        return redirect()->route('profile.permissions', $profile->id);
+        return redirect()->route('profiles.permissions', $profile->id);
     }
     public function detachPermissionProfile($idProfile, $idPermission)
     {
@@ -63,7 +63,7 @@ class PermissionProfileController extends Controller
 
         $profile->permissions()->detach($permission);
 
-        return redirect()->route('profile.permissions', $profile->id);
+        return redirect()->route('profiles.permissions', $profile->id);
     }
     public function profiles($idPermission)
     {
